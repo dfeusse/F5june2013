@@ -20,10 +20,7 @@
         <style type="text/css">
 
         body {
-                
-                font-family: "Helvetica Neue", Helvetica, sans-serif;
-                font-size: 12px;
-                height: 1000px;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
             }
 
         .d3-tip {
@@ -63,17 +60,17 @@
 
             #button_all {
                 margin-left: 8px;
-                width: 100px;
+                width: 120px;
                 height: 41px;
             }
             #button_weekly {
                 margin-left: 8px;
-                width: 100px;
+                width: 150px;
                 height: 41px;
             }
             #button_category {
                 margin-left: 8px;
-                width: 110px;
+                width: 120px;
                 height: 41px;
             }
             circle {
@@ -86,7 +83,7 @@
         </style>
   	</head>
   <body>
-
+    <div id="buttons"></div>
   	<div id="display">
 
     <script type="text/javascript">
@@ -119,27 +116,27 @@ var tip = d3.tip()
     //.html(function(d) { return d.name; })
     .offset([-12, 0]);
 
-var buttonAll = d3.select("#display")
+var buttonAll = d3.select("#buttons")
     .append("input")
     //.attr("class", "btn btn-large btn-block btn-primary")
-    .attr("class", "btn btn-block")
+    .attr("class", "btn")
     .attr("id", "button_all")
     .attr("type","button")
-    .attr("value", "All weeks");
+    .attr("value", "All donations");
 
-var buttonWeekly = d3.select("#display")
+var buttonWeekly = d3.select("#buttons")
     .append("input")
-    .attr("class", "btn btn-block")
+    .attr("class", "btn")
     .attr("id", "button_weekly")
     .attr("type","button")
-    .attr("value", "Each week");
+    .attr("value", "Monthly donations");
 
-var buttonCategory = d3.select("#display")
+var buttonCategory = d3.select("#buttons")
     .append("input")
-    .attr("class", "btn btn-block")
+    .attr("class", "btn")
     .attr("id", "button_category")
     .attr("type","button")
-    .attr("value", "Each category");
+    .attr("value", "Charity class");
 
 var width = 1000,
 	height = 600,
@@ -388,23 +385,23 @@ buttonCategory
         vis.selectAll(".rows").remove();
 
         //column labeling
-        var meetups_x = {"animals": 180 - 55, 
-                        "children": 360 - 30, 
-                        "disaster relief": 540 + 10, 
-                        "education": 720 + 55, 
-                        "health_wellness": 180 - 55, 
-                        "human rights": 360 - 25, 
-                        "hunger_water": 540 + 25, 
-                        "womens issues": 720 + 55};
+        var meetups_x = {"Animals": 180 - 55, 
+                        "Children": 360 - 30, 
+                        "Disaster relief": 540 + 10, 
+                        "Education": 720 + 55, 
+                        "Health & Wellness": 180 - 55, 
+                        "Human rights": 360 - 25, 
+                        "Hunger & Water": 540 + 25, 
+                        "Womens issues": 720 + 55};
 
-        var meetups_y = {"animals": 50, 
-                        "children": 50, 
-                        "disaster relief": 50, 
-                        "education": 50, 
-                        "health_wellness": 325,
-                        "human rights": 325, 
-                        "hunger_water": 325, 
-                        "womens issues": 325};
+        var meetups_y = {"Animals": 50, 
+                        "Children": 50, 
+                        "Disaster relief": 50, 
+                        "Education": 50, 
+                        "Health & Wellness": 325,
+                        "Human rights": 325, 
+                        "Hunger & Water": 325, 
+                        "Womens issues": 325};
 
         var meetups_x_data = d3.keys(meetups_x)
         //var meetups_y_data = d3.keys(meetups_y)
